@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, User, Bell } from 'lucide-react';
@@ -72,9 +71,11 @@ const Navbar = () => {
               <Button variant="ghost" size="icon" className="p-1 text-gray-300 hover:bg-gray-700 transition-all">
                 <User className="h-6 w-6" />
               </Button>
-              <Button className="ml-4 bg-yellow-400 text-black hover:bg-yellow-500">
-                Sign In
-              </Button>
+              <Link to="/signin" className="ml-4">
+                <Button className="bg-yellow-400 text-black hover:bg-yellow-500">
+                  Sign In
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -128,9 +129,11 @@ const Navbar = () => {
               </div>
             </div>
             <div className="mt-3 px-2 space-y-1">
-              <Button className="w-full justify-center bg-yellow-400 text-black hover:bg-yellow-500">
-                Sign In
-              </Button>
+              <Link to="/signin">
+                <Button className="w-full justify-center bg-yellow-400 text-black hover:bg-yellow-500">
+                  Sign In
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

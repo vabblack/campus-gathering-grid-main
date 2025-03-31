@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, MapPin, Clock, DollarSign, Users, Share2, Star, ArrowLeft } from 'lucide-react';
@@ -107,10 +106,27 @@ const EventPage = () => {
               </div>
               
               <div className="flex space-x-2">
-                <Button variant="outline" className="flex items-center">
+                <Button 
+                  variant="outline" 
+                  className="flex items-center bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-400 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105"
+                  onClick={async () => {
+                    try {
+                      await navigator.share({
+                        title: event.title,
+                        text: event.description,
+                        url: window.location.href
+                      });
+                    } catch (error) {
+                      console.error('Error sharing:', error);
+                    }
+                  }}
+                >
                   <Share2 className="h-4 w-4 mr-2" /> Share
                 </Button>
-                <Button variant="outline" className="flex items-center">
+                <Button 
+                  variant="outline" 
+                  className="flex items-center bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-400 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105"
+                >
                   <Star className="h-4 w-4 mr-2" /> Save
                 </Button>
               </div>
@@ -173,7 +189,9 @@ const EventPage = () => {
                 <h2 className="text-2xl font-semibold elegant-text-primary mb-4">Location</h2>
                 <div className="h-64 rounded-lg overflow-hidden">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71277447933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a47df06b185%3A0xc80f9cfce5383d5d!2sNew%20York%20University!5e0!3m2!1sen!2sus!4v1659361353375!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d717.0464057871566!2d75.7041794303767!3d31.252123572878492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f66440fb2c1%3A0xca553bb20da605de!2sShanti%20Devi%20Mittal%20Auditorium!5e0!3m2!1sen!2sin!4v1743417022182!5m2!1sen!2si" 
+                    
+                    
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 

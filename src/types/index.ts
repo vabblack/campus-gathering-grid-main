@@ -1,4 +1,3 @@
-
 export type UserRole = 'student' | 'organizer' | 'admin' | 'sponsor';
 
 export interface Event {
@@ -9,7 +8,7 @@ export interface Event {
   time: string;
   location: string;
   organizer: string;
-  category: string;
+  category: EventCategory;
   image: string;
   ticketPrice: number;
   featured: boolean;

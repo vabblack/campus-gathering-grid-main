@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -16,14 +15,19 @@ const Index = () => {
   const [animatedElements, setAnimatedElements] = useState<Element[]>([]);
 
   const filteredEvents = selectedCategory === 'All'
-    ? events.filter(event => event.featured)
-    : events.filter(event => event.category === selectedCategory);
+    ? events
+    : events.filter(event => {
+        console.log('Comparing:', event.category, selectedCategory);
+        return event.category === selectedCategory;
+      });
 
   const handleCategoryChange = (category: EventCategory) => {
+    console.log('Category changed to:', category);
     setSelectedCategory(category);
   };
 
   useEffect(() => {
+    console.log('Component re-rendered with category:', selectedCategory);
     // Initialize scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,7 +54,7 @@ const Index = () => {
         });
       }
     };
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div className="min-h-screen bg-black text-gray-100">
@@ -63,38 +67,55 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-              Browse Events by Category
+              Why Choose Campus Gathering Grid?
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-300">
-              Find the perfect event for you
+              The ultimate platform for campus events and community building
             </p>
           </div>
           
-          <CategoryFilter 
-            selectedCategory={selectedCategory} 
-            onCategoryChange={handleCategoryChange} 
-          />
-          
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12">
-            {filteredEvents.map((event, index) => (
-              <div key={event.id} className="scroll-reveal" style={{transitionDelay: `${index * 0.1}s`}}>
-                <EventCard event={event} index={index} />
-              </div>
-            ))}
-          </div>
-          
-          {filteredEvents.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-gray-300 text-xl">
-                No events found in this category. Please check back later or try another category.
-              </p>
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.1s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold text-white mb-2">Easy Event Discovery</h3>
+              <p className="text-gray-300">Find events that match your interests with our smart category system and personalized recommendations.</p>
             </div>
-          )}
+            
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.2s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">🤝</div>
+              <h3 className="text-xl font-bold text-white mb-2">Build Community</h3>
+              <p className="text-gray-300">Connect with fellow students, join clubs, and create lasting friendships through shared experiences.</p>
+            </div>
+            
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.3s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">🎨</div>
+              <h3 className="text-xl font-bold text-white mb-2">Express Yourself</h3>
+              <p className="text-gray-300">Create and host your own events to share your passions and talents with the campus community.</p>
+            </div>
+            
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.4s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">📱</div>
+              <h3 className="text-xl font-bold text-white mb-2">Stay Updated</h3>
+              <p className="text-gray-300">Never miss an event with our real-time notifications and calendar integration.</p>
+            </div>
+            
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.5s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">🎓</div>
+              <h3 className="text-xl font-bold text-white mb-2">Learn & Grow</h3>
+              <p className="text-gray-300">Access workshops, seminars, and networking events to enhance your academic and professional journey.</p>
+            </div>
+            
+            <div className="glass-card p-6 scroll-reveal" style={{transitionDelay: '0.6s'}}>
+              <div className="text-yellow-400 text-4xl mb-4">💫</div>
+              <h3 className="text-xl font-bold text-white mb-2">Create Memories</h3>
+              <p className="text-gray-300">Make your university experience unforgettable with diverse events and activities.</p>
+            </div>
+          </div>
           
           <div className="mt-12 text-center scroll-reveal">
             <Link to="/events">
               <Button size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500">
-                View All Events
+                Explore All Events
               </Button>
             </Link>
           </div>

@@ -61,7 +61,7 @@ const Hero = () => {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 relative">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src="images\image.jpg" // Updated path to the local image
           alt="Students at a campus event"
         />
 
@@ -77,7 +77,7 @@ const Hero = () => {
               <div className="h-6 w-6 rounded-full bg-yellow-500 flex items-center justify-center">
                 <span className="text-xs font-bold">S</span>
               </div>
-              <span className="text-xs ml-2 text-gray-300">Sarah, Music</span>
+              <span className="text-xs ml-2 text-gray-300">Rittik, Music</span>
               <Star className="h-3 w-3 ml-auto text-yellow-400 fill-yellow-400" />
             </div>
           </div>
@@ -92,7 +92,7 @@ const Hero = () => {
               <div className="h-6 w-6 rounded-full bg-yellow-500 flex items-center justify-center">
                 <span className="text-xs font-bold">M</span>
               </div>
-              <span className="text-xs ml-2 text-gray-300">Mike, CS</span>
+              <span className="text-xs ml-2 text-gray-300">Yash, CS</span>
               <div className="ml-auto flex space-x-1">
                 <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                 <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
@@ -111,7 +111,7 @@ const Hero = () => {
               <div className="h-6 w-6 rounded-full bg-yellow-500 flex items-center justify-center">
                 <span className="text-xs font-bold">A</span>
               </div>
-              <span className="text-xs ml-2 text-gray-300">Alex, Freshman</span>
+              <span className="text-xs ml-2 text-gray-300">Gaurav, Freshman</span>
             </div>
           </div>
 
@@ -125,7 +125,7 @@ const Hero = () => {
               <div className="h-6 w-6 rounded-full bg-yellow-500 flex items-center justify-center">
                 <span className="text-xs font-bold">J</span>
               </div>
-              <span className="text-xs ml-2 text-gray-300">Jamie, Senior</span>
+              <span className="text-xs ml-2 text-gray-300">Aman, Senior</span>
               <div className="ml-auto flex space-x-1">
                 <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                 <Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
@@ -134,13 +134,13 @@ const Hero = () => {
           </div>
 
           {/* Middle Left Comment */}
-          <div className="absolute top-[50%] left-[2%] bg-gradient-to-br from-gray-800/60 to-gray-900/80 backdrop-blur-md p-3 rounded-xl w-44 animate-float shadow-lg border border-gray-600/30 transform -translate-y-1/2" style={{ animationDelay: "2.5s" }}>
+          <div className="absolute top-[39%] left-[24%] bg-gradient-to-br from-gray-800/60 to-gray-900/80 backdrop-blur-md p-3 rounded-xl w-44 animate-float shadow-lg border border-gray-600/30 transform -translate-y-1/2" style={{ animationDelay: "2.5s" }}>
             <p className="text-xs text-white">"Best way to meet new people on campus!"</p>
             <div className="flex items-center mt-2">
               <div className="h-5 w-5 rounded-full bg-yellow-500 flex items-center justify-center">
                 <span className="text-[10px] font-bold">T</span>
               </div>
-              <span className="text-[10px] ml-1 text-gray-300">Taylor</span>
+              <span className="text-[10px] ml-1 text-gray-300">Vishal</span>
               <ThumbsUp className="h-3 w-3 ml-auto text-yellow-400" />
             </div>
           </div>

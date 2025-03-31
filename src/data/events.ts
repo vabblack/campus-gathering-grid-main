@@ -1,5 +1,4 @@
-
-import { Event } from '@/types';
+import { Event, EventCategory } from '@/types';
 
 export const events: Event[] = [
   {
@@ -8,11 +7,11 @@ export const events: Event[] = [
     description: 'Join us for the biggest tech event of the year featuring guest speakers from leading tech companies.',
     date: '2023-11-15',
     time: '10:00 AM - 4:00 PM',
-    location: 'University Center Hall A',
+    location: 'Lovely Unipolis (Block 12)',
     organizer: 'Computer Science Club',
-    category: 'Academic',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    ticketPrice: 15,
+    category: 'Academic' as EventCategory,
+    image: 'https://happenings.lpu.in/wp-content/uploads/2024/08/LPU-Pro-Chancellor-Rashmi-Mittal-is-interacting-with-the-students-during-freshman-induction-program-at-LPU-campus-scaled.jpg',
+    ticketPrice: 1150,
     featured: true
   },
   {
@@ -21,11 +20,11 @@ export const events: Event[] = [
     description: 'Annual music festival featuring performances from student bands and a headliner concert.',
     date: '2023-04-22',
     time: '5:00 PM - 11:00 PM',
-    location: 'Campus Amphitheater',
+    location: 'Shanti Devi Mittal Auditorium',
     organizer: 'Student Activities Board',
-    category: 'Concert',
-    image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    ticketPrice: 25,
+    category: 'Concert' as EventCategory,
+    image: 'https://happenings.lpu.in/wp-content/uploads/2022/09/DSC00187-scaled.jpg',
+    ticketPrice: 2500,
     featured: true
   },
   {
@@ -36,7 +35,7 @@ export const events: Event[] = [
     time: '11:00 AM - 3:00 PM',
     location: 'Student Union Grand Ballroom',
     organizer: 'Career Services Center',
-    category: 'Career',
+    category: 'Career' as EventCategory,
     image: 'https://images.unsplash.com/photo-1577896852618-01da1afc6f8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ticketPrice: 0,
     featured: false
@@ -47,11 +46,11 @@ export const events: Event[] = [
     description: 'Celebrate the diversity of our campus community with food, performances, and activities.',
     date: '2023-03-18',
     time: '12:00 PM - 6:00 PM',
-    location: 'International Student Center',
+    location: 'Shanti Devi Mittal Auditorium',
     organizer: 'Multicultural Student Association',
-    category: 'Cultural',
-    image: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
-    ticketPrice: 5,
+    category: 'Cultural' as EventCategory,
+    image: 'https://happenings.lpu.in/wp-content/uploads/2024/04/Students-performing-cultural-dance-and-showcasing-tableau-of-various-regions-during-One-India-2024-cultural-fest-at-LPU-campus-1-scaled.jpg',
+    ticketPrice: 500,
     featured: true
   },
   {
@@ -62,7 +61,7 @@ export const events: Event[] = [
     time: '9:00 AM - 5:00 PM',
     location: 'Recreation Center Courts',
     organizer: 'Campus Recreation',
-    category: 'Sports',
+    category: 'Sports' as EventCategory,
     image: 'https://images.unsplash.com/photo-1518514379462-5c11e75348c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ticketPrice: 10,
     featured: false
@@ -75,7 +74,7 @@ export const events: Event[] = [
     time: '2:00 PM - 4:00 PM',
     location: 'Library Learning Commons',
     organizer: 'Career Services Center',
-    category: 'Workshop',
+    category: 'Workshop' as EventCategory,
     image: 'https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
     ticketPrice: 0,
     featured: false
@@ -88,7 +87,7 @@ export const events: Event[] = [
     time: '6:00 PM - 8:00 PM',
     location: 'Alumni Center',
     organizer: 'Alumni Association',
-    category: 'Social',
+    category: 'Social' as EventCategory,
     image: 'https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     ticketPrice: 5,
     featured: false
@@ -101,8 +100,8 @@ export const events: Event[] = [
     time: '9:00 AM - 3:00 PM',
     location: 'Science Building Atrium',
     organizer: 'Office of Research',
-    category: 'Academic',
-    image: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f8b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+    category: 'Academic' as EventCategory,
+    image: 'https://happenings.lpu.in/wp-content/uploads/2022/09/DSC00187-scaled.jpg',
     ticketPrice: 0,
     featured: false
   }
