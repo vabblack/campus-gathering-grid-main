@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, MessageSquare, Star, ThumbsUp } from 'lucide-react';
+import { Search, MessageSquare, Star, ThumbsUp, Calendar, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/ui-button.css';
 
 const Hero = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,21 +34,21 @@ const Hero = () => {
             <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 opacity-100">
               Your ultimate platform to find exciting events on campus, connect with peers, and create your own gatherings.
             </p>
-            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start opacity-100">
-              <div className="rounded-md shadow">
-                <Link to="/events">
-                  <Button size="lg" className="w-full bg-yellow-400 text-black hover:bg-yellow-500 hover:scale-105 transition-all">
+            <div className="mt-5 sm:mt-8 flex items-center gap-3 opacity-100">
+              <Link to="/events">
+                <button className="ui-btn">
+                  <span>
                     Browse Events
-                  </Button>
-                </Link>
-              </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3">
-                <Link to="/create-event">
-                  <Button size="lg" variant="outline" className="w-full border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black hover:scale-105 transition-all">
+                  </span>
+                </button>
+              </Link>
+              <Link to="/create-event">
+                <button className="ui-btn yellow">
+                  <span>
                     Create Event
-                  </Button>
-                </Link>
-              </div>
+                  </span>
+                </button>
+              </Link>
             </div>
 
             <div className="mt-16 sm:max-w-lg sm:mx-auto lg:mx-0 opacity-100">
