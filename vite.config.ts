@@ -10,13 +10,27 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic',
+      jsxImportSource: 'react'
+    }),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "react": path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
     },
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
   },
+  define: {
+    'process.env': process.env
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+    exclude: ['@vitejs/plugin-react-swc']
+  },
+  publicDir: 'public' // Change to use the public directory for static assets
 }));

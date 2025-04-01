@@ -1,12 +1,11 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
-export default {
+const config: Config = {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./index.html",
+		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	prefix: "",
 	theme: {
@@ -69,28 +68,97 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
+				'gradient-xy': {
+					'0%, 100%': {
+						'background-size': '400% 400%',
+						'background-position': 'left center'
 					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
 					}
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+				'blob': {
+					'0%': {
+						transform: 'translate(0px, 0px) scale(1)',
 					},
-					to: {
-						height: '0'
+					'33%': {
+						transform: 'translate(30px, -50px) scale(1.1)',
+					},
+					'66%': {
+						transform: 'translate(-20px, 20px) scale(0.9)',
+					},
+					'100%': {
+						transform: 'translate(0px, 0px) scale(1)',
+					},
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-20px)' },
+				},
+				fadeIn: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
+				fadeInUp: {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				'particle': {
+					'0%': {
+						transform: 'translateY(100vh) translateX(0)',
+						opacity: '0',
+					},
+					'100%': {
+						transform: 'translateY(-100vh) translateX(100px)',
+						opacity: '1',
+					},
+				},
+				typing: {
+					"0%": {
+						width: "0%",
+						visibility: "hidden"
+					},
+					"100%": {
+						width: "100%"
 					}
-				}
+				},
+				blink: {
+					"50%": {
+						borderColor: "transparent"
+					},
+					"100%": {
+						borderColor: "white"
+					}
+				},
+				dimlight: {
+					'0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%': {
+						color: '#0e3742',
+						boxShadow: 'none',
+					},
+					'18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%': {
+						color: '#fff',
+						textShadow: '0 0 10px #03bcf4',
+					},
+				},
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'gradient-xy': 'gradient-xy 15s ease infinite',
+				'blob': 'blob 7s infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'float-slow': 'float 8s ease-in-out infinite',
+				'float-delay': 'float 6s ease-in-out infinite 1s',
+				'fade-in': 'fadeIn 1s ease-out',
+				'fade-in-delayed': 'fadeIn 1s ease-out 0.5s',
+				'fade-in-up': 'fadeInUp 1s ease-out 0.8s',
+				'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'particle': 'particle 20s linear infinite',
+				typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
+				dimlight: 'dimlight 5s infinite',
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;
+
+export default config;

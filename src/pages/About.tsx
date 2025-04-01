@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -175,55 +174,72 @@ const About = () => {
         </section>
         
         {/* Contact Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+          {/* Animated background elements */}
+          <div className="absolute inset-0">
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-yellow-500/10" />
+            
+            {/* Animated shapes */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl animate-float" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-3xl animate-float-delayed" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-3xl animate-pulse" />
+            
+            {/* Grid pattern */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] opacity-10" />
+          </div>
+
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="text-center mb-10 scroll-reveal">
-              <h2 className="text-3xl font-bold elegant-text-primary">Contact Us</h2>
-              <p className="mt-4 text-xl elegant-text-secondary">Have questions or feedback? Reach out to our team.</p>
+              <h2 className="text-3xl font-bold text-white">Contact Us</h2>
+              <p className="mt-4 text-xl text-gray-300">Have questions or feedback? Reach out to our team.</p>
             </div>
             
-            <div className="glass-card p-8 scroll-reveal">
+            <div className="glass-card p-8 scroll-reveal backdrop-blur-lg bg-gray-900/80 shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-500/20">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block mb-2 font-medium elegant-text-primary">Name</label>
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="block font-medium text-white">Name</label>
                     <input 
                       type="text" 
                       id="name" 
-                      className="glass-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="glass-input w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-blue-400 bg-gray-800/50 text-white placeholder:text-gray-400"
                       placeholder="Your name"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block mb-2 font-medium elegant-text-primary">Email</label>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="block font-medium text-white">Email</label>
                     <input 
                       type="email" 
                       id="email" 
-                      className="glass-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="glass-input w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-blue-400 bg-gray-800/50 text-white placeholder:text-gray-400"
                       placeholder="Your email"
                     />
                   </div>
                 </div>
-                <div>
-                  <label htmlFor="subject" className="block mb-2 font-medium elegant-text-primary">Subject</label>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="block font-medium text-white">Subject</label>
                   <input 
                     type="text" 
                     id="subject" 
-                    className="glass-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="glass-input w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-blue-400 bg-gray-800/50 text-white placeholder:text-gray-400"
                     placeholder="Subject of your message"
                   />
                 </div>
-                <div>
-                  <label htmlFor="message" className="block mb-2 font-medium elegant-text-primary">Message</label>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="block font-medium text-white">Message</label>
                   <textarea 
                     id="message" 
                     rows={5} 
-                    className="glass-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="glass-input w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-blue-400 bg-gray-800/50 text-white placeholder:text-gray-400 resize-none"
                     placeholder="Your message"
                   ></textarea>
                 </div>
                 <div>
-                  <Button type="submit" className="w-full glass-button text-white">
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white hover:scale-105 transition-all duration-200 py-2.5"
+                  >
                     <Mail className="mr-2 h-4 w-4" />
                     Send Message
                   </Button>

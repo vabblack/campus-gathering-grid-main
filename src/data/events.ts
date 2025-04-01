@@ -63,7 +63,7 @@ export const events: Event[] = [
     organizer: 'Campus Recreation',
     category: 'Sports' as EventCategory,
     image: 'https://happenings.lpu.in/wp-content/uploads/2019/08/Basketball6.jpg',
-    ticketPrice: 10,
+    ticketPrice: 1000,
     featured: false
   },
   {

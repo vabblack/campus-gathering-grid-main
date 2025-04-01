@@ -1,21 +1,8 @@
-
 <?php
-// Database connection parameters
-$db_host = "localhost";
-$db_user = "username";
-$db_pass = "password";
-$db_name = "campus_events";
+require_once 'includes/config.php';
 
-// Connect to database
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode([
-        'success' => false,
-        'message' => "Connection failed: " . $conn->connect_error
-    ]));
-}
+// Get database connection
+$conn = getDBConnection();
 
 // Set header to return JSON
 header('Content-Type: application/json');

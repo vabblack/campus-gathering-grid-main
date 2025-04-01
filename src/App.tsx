@@ -9,6 +9,9 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import SignIn from "./components/SignIn";
 import EventHome from "./pages/EventHome";
+import EventRegistration from "./pages/EventRegistration";
+import PaymentConfirmation from "./pages/PaymentConfirmation";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/events" element={<EventHome />} />
         <Route path="/event/:id" element={<EventPage />} />
+        <Route path="/event/:id/register" element={<EventRegistration />} />
+        <Route path="/event/:id/payment-confirmation" element={<PaymentConfirmation />} />
+        <Route path="/event/:id/payment-success" element={<PaymentSuccess />} />
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/about" element={<About />} />
         <Route path="/signin" element={<SignIn />} />

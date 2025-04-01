@@ -1,0 +1,92 @@
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: cardSlideIn 0.6s ease-out forwards;
+}
+
+.event-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, box-shadow;
+  transform-origin: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.event-card:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.2),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.category-change-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.category-change-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+.category-change-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category-change-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in;
+}
+
+/* Grid container styles */
+.grid-container {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+}
+
+/* Prevent layout shift during animations */
+.grid-container::before {
+  content: '';
+  width: 0;
+  padding-bottom: 1px;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+/* Ensure cards maintain height during animation */
+.grid-container > * {
+  min-height: 0;
+  height: 100%;
+} 

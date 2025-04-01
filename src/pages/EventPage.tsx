@@ -16,15 +16,12 @@ const EventPage = () => {
   const [relatedEvents, setRelatedEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    // Simulate loading data
     setLoading(true);
     setTimeout(() => {
       if (id) {
-        // Fix: Convert the string id to number before comparison
         const foundEvent = events.find(e => e.id === id);
         setEvent(foundEvent || null);
         
-        // Find related events (same category)
         if (foundEvent) {
           const related = events
             .filter(e => e.category === foundEvent.category && e.id !== foundEvent.id)
@@ -38,7 +35,7 @@ const EventPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
         <Navbar />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center">
           <div className="animate-pulse flex flex-col items-center">
@@ -54,13 +51,13 @@ const EventPage = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
         <Navbar />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="glass-card p-8 text-center animate-fade-in">
-            <h2 className="text-2xl font-bold elegant-text-primary mb-4">Event Not Found</h2>
-            <p className="elegant-text-secondary mb-6">The event you're looking for doesn't exist or has been removed.</p>
-            <Link to="/" className="glass-button inline-flex items-center px-4 py-2 rounded-md text-black">
+          <div className="bg-gray-800/50 backdrop-blur-md p-8 text-center rounded-lg border border-gray-700">
+            <h2 className="text-2xl font-bold text-white mb-4">Event Not Found</h2>
+            <p className="text-gray-300 mb-6">The event you're looking for doesn't exist or has been removed.</p>
+            <Link to="/" className="inline-flex items-center px-4 py-2 rounded-md bg-yellow-400 text-black hover:bg-yellow-500 transition-all">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Events
             </Link>
           </div>
@@ -71,17 +68,17 @@ const EventPage = () => {
   }
 
   return (
-    <div className="min-h-screen gradient-bg-1">
+    <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
       <Navbar />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="mb-6 animate-fade-in">
+        <div className="mb-6">
           <Link to="/" className="text-yellow-400 hover:text-yellow-300 flex items-center transition-all hover:translate-x-[-5px]">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Events
           </Link>
         </div>
         
-        <div className="glass-card overflow-hidden shadow-xl animate-fade-in">
+        <div className="bg-gray-800/50 backdrop-blur-md rounded-lg shadow-xl border border-gray-700 overflow-hidden">
           <div className="relative h-64 md:h-96">
             <img 
               src={event.image} 
@@ -89,7 +86,7 @@ const EventPage = () => {
               className="w-full h-full object-cover"
             />
             {event.featured && (
-              <Badge className="absolute top-4 right-4 badge-featured">
+              <Badge className="absolute top-4 right-4 bg-yellow-400 text-black">
                 Featured
               </Badge>
             )}
@@ -98,11 +95,11 @@ const EventPage = () => {
           <div className="p-6 md:p-8">
             <div className="flex flex-wrap justify-between items-start">
               <div className="mb-4 md:mb-0">
-                <Badge variant="outline" className="badge-category mb-2">
+                <Badge variant="outline" className="border-yellow-400 text-yellow-400 mb-2">
                   {event.category}
                 </Badge>
-                <h1 className="text-3xl md:text-4xl font-bold elegant-text-primary">{event.title}</h1>
-                <p className="mt-4 text-lg elegant-text-secondary">{event.description}</p>
+                <h1 className="text-3xl md:text-4xl font-bold text-white">{event.title}</h1>
+                <p className="mt-4 text-lg text-gray-300">{event.description}</p>
               </div>
               
               <div className="flex space-x-2">
@@ -134,10 +131,10 @@ const EventPage = () => {
             
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold elegant-text-primary">Event Details</h2>
+                <h2 className="text-2xl font-semibold text-white">Event Details</h2>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex items-center elegant-text-secondary staggered-item">
+                  <div className="flex items-center text-gray-300">
                     <Calendar className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Date</p>
@@ -145,7 +142,7 @@ const EventPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center elegant-text-secondary staggered-item">
+                  <div className="flex items-center text-gray-300">
                     <Clock className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Time</p>
@@ -153,7 +150,7 @@ const EventPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center elegant-text-secondary staggered-item">
+                  <div className="flex items-center text-gray-300">
                     <MapPin className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Location</p>
@@ -161,7 +158,7 @@ const EventPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center elegant-text-secondary staggered-item">
+                  <div className="flex items-center text-gray-300">
                     <DollarSign className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Price</p>
@@ -169,7 +166,7 @@ const EventPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center elegant-text-secondary staggered-item">
+                  <div className="flex items-center text-gray-300">
                     <Users className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Capacity</p>
@@ -177,48 +174,35 @@ const EventPage = () => {
                     </div>
                   </div>
                 </div>
-                
-                <div className="pt-6">
-                  <Button className="w-full glass-button text-black hover:scale-105 transition-all">
-                    Register for Event
-                  </Button>
-                </div>
               </div>
               
-              <div>
-                <h2 className="text-2xl font-semibold elegant-text-primary mb-4">Location</h2>
-                <div className="h-64 rounded-lg overflow-hidden">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d717.0464057871566!2d75.7041794303767!3d31.252123572878492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f66440fb2c1%3A0xca553bb20da605de!2sShanti%20Devi%20Mittal%20Auditorium!5e0!3m2!1sen!2sin!4v1743417022182!5m2!1sen!2si" 
-                    
-                    
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+              <div className="bg-gray-800/50 backdrop-blur-md p-6 rounded-lg border border-yellow-400/20">
+                <h2 className="text-2xl font-semibold text-white mb-4">Register for Event</h2>
+                <p className="text-gray-300 mb-6">
+                  Secure your spot at this exciting event. Limited seats available!
+                </p>
+                <Link to={`/event/${event.id}/register`}>
+                  <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 hover:scale-105 transition-all">
+                    Register for Event
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
         
         {relatedEvents.length > 0 && (
-          <div className="mt-16 scroll-reveal">
-            <h2 className="text-2xl font-bold elegant-text-primary mb-6">Related Events</h2>
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-white mb-6">Related Events</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedEvents.map((event, index) => (
-                <div key={event.id} className="scroll-reveal" style={{transitionDelay: `${index * 0.1}s`}}>
-                  <Link to={`/event/${event.id}`}>
-                    <div className="glass-card p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                      <img src={event.image} alt={event.title} className="w-full h-40 object-cover rounded-lg mb-3" />
-                      <h3 className="font-semibold elegant-text-primary">{event.title}</h3>
-                      <p className="text-sm elegant-text-secondary mt-1">{formatDate(event.date)}</p>
-                    </div>
-                  </Link>
-                </div>
+              {relatedEvents.map((event) => (
+                <Link key={event.id} to={`/event/${event.id}`}>
+                  <div className="bg-gray-800/50 backdrop-blur-md p-4 rounded-lg border border-gray-700 hover:border-yellow-400/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <img src={event.image} alt={event.title} className="w-full h-40 object-cover rounded-lg mb-3" />
+                    <h3 className="font-semibold text-white">{event.title}</h3>
+                    <p className="text-sm text-gray-300 mt-1">{formatDate(event.date)}</p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
