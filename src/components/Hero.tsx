@@ -80,7 +80,7 @@ const Hero = () => {
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="images/image.jpg"
+            src="https://happenings.lpu.in/wp-content/uploads/2023/11/Spectra-closing-4.jpg"
             alt="Students at a campus event"
           />
 
