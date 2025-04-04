@@ -4,7 +4,7 @@ import App from './App'
 import './index.css'
 import { env } from './env'
 
-// Log environment variables for debugging
+
 console.log('Environment:', env);
 
 const rootElement = document.getElementById("root");
@@ -16,3 +16,4 @@ root.render(
     <App />
   </React.StrictMode>
 );
+

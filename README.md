@@ -26,7 +26,7 @@ Campus Gathering Grid is a platform designed to connect students with campus eve
 
 ## Project Structure
 
-```
+
 campus-gathering-grid/
 ├── index.html             # Home page
 ├── event-details.php      # Event details page
@@ -40,7 +40,7 @@ campus-gathering-grid/
     ├── campus-hero.jpg
     ├── event-placeholder.jpg
     └── events/            # Event images
-```
+
 
 ## Setup Instructions
 
